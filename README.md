@@ -163,29 +163,32 @@ FROM
     top_uk_youtubers_2024
 
 
+## SQL View Creation
 
-
-
-
-
-
-
-# Table of Contents
-
--[Objective](#Objective)
-  -[Mockup](#mockup)
-
-
-
-# Adding Code Blocks
+### Create the SQL View
 ```sql
+/*
+# 1. Create a view to store the transformed data
+# 2. Cast the extracted channel name as VARCHAR(100)
+# 3. Select the required columns from the top_uk_youtubers_2024 SQL table 
+*/
 
-```
+-- 1.
+CREATE VIEW view_uk_youtubers_2024 AS
 
-```python
+-- 2.
+SELECT
+    CAST(SUBSTRING(NOMBRE, 1, CHARINDEX('@', NOMBRE) -1) AS VARCHAR(100)) AS channel_name, -- 2. 
+    total_subscribers,
+    total_views,
+    total_videos
 
-```
+-- 3.
+FROM
+    top_uk_youtubers_2024;
 
-# To create Markdown Tables
 
-## Subheader
+
+
+
+
